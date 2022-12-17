@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="risecommerce" translate="label" sortOrder="500">
+            <label>Risecommerce Extensions</label>
+        </tab>
+        <section id="risecommerce_all_product_reviews" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>All Product Reviews</label>
+            <tab>risecommerce</tab>
+            <resource>Risecommerce_AllProductReviews::risecommerce_all_product_reviews</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="displayTotal" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display total reviews</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/displayTotal</config_path>
+                </field>
+                <field id="No_of_Review" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1"><label>Number of reviews</label>
+                    <config_path>risecommerce_all_product_reviews/general/No_of_Review</config_path>
+                    <validate>required-entry validate-number validate-greater-than-zero</validate>
+                </field>
+                <field id="showTitle" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show the title of the review</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/showTitle</config_path>
+                </field>
+                <field id="showRating" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show the star ratings for each review</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/showRating</config_path>
+                </field>
+                <field id="showName" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show reviewer nickname</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/showName</config_path>
+                </field>
+                <field id="showDate" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show the date of the review</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/showDate</config_path>
+                </field>
+                <field id="showImage" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show the product image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/showImage</config_path>
+                </field>
+                <field id="sortByPosition" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort by position</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>risecommerce_all_product_reviews/general/sortByPosition</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

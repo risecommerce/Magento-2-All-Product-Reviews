@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<risecommerce_all_product_reviews>
+			<general>
+				<displayTotal>1</displayTotal>
+				<No_of_Review>20</No_of_Review>
+				<showTitle>1</showTitle>
+				<showRating>1</showRating>
+				<showName>1</showName>
+				<showDate>1</showDate>
+				<showImage>1</showImage>
+				<sortByPosition>1</sortByPosition>
+			</general>
+		</risecommerce_all_product_reviews>
+	</default>
+</config>

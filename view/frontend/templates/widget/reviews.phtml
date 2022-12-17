@@ -1,0 +1,85 @@
+<?php
+$reviewCollection = $block->getReviewCollection();
+$totalReviews = $block->getDisplayNoReview();
+$totalRating = $block->getTotalRating();
+$avg = ($totalReviews?($totalRating / $totalReviews):0);
+if($totalReviews) {
+    ?>
+    <div class="container risecommerce_all_product_reviews page-products">
+        <div class="risecommerce-all-product-reviews-summary">
+            <div class="risecommerce-all-product-reviews-stars">
+                <span style='width:<?= $block->escapeHtml($avg) ?>%'/>
+            </div>
+            <div class="risecommerce-all-product-reviews-summary-text">
+                <p>
+                    <?= $block->escapeHtml(__('Rated ') . $block->getAvgRating() . __(' out of 5 stars.')) ?>
+                    <?php if ($block->isDisplayTotal()) : ?>
+                        <?= $block->escapeHtml(__('Based on ') . $totalReviews . __(' Reviews')); ?>
+                    <?php endif ?>
+                </p>
+            </div>
+        </div>
+        <div class="products wrapper grid products-grid risecommerce-all-product-reviews-columns">
+            <ol class="products list items product-items">
+                <?php foreach ($reviewCollection as $review) : ?>
+                    <li class="item product product-item">
+                        <div class="product-item-info">
+                            <?php if ($block->showImage()) : ?>
+                                <?php $imgpath = $block->getImagePathFromSku($review['entity_pk_value']); ?>
+                                <a href="<?= $block->escapeUrl($block->getProductImageUrl($review['entity_pk_value'])); ?>" class="product photo product-item-photo">
+                                <span class="product-image-container" style="width:240px;">
+                                    <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                                        <img class="product-image-photo" src="<?= $block->escapeHtml($imgpath) ?>" max-width="240" max-height="300" alt="Proteus Fitness Jackshirt">
+                                    </span>
+                                </span>
+                                </a>
+                            <?php endif; ?>
+                            <div class="product details product-item-details">
+                                <?php if ($block->showTitle()) : ?>
+                                    <strong class="product-item-name risecommerce-all-product-review-title">
+                                        <?= $block->escapeHtml($review['title']) ?>
+                                    </strong>
+                                <?php endif; ?>
+                                <?php if ($block->showName()) : ?>
+                                    <span class="product-item-name risecommerce-all-product-review-by"><strong>By: </strong><?= $block->escapeHtml($review['nickname']) ?></span>
+                                <?php endif; ?>
+
+                                <?php if ($block->showDate()) : ?>
+                                    <?php
+                                    $date = new DateTime($review['created_at']);
+                                    ?>
+                                    <div><strong>On: </strong><?= $block->escapeHtml($date->format('d/m/Y')) ?></div>
+                                <?php endif; ?>
+
+                                <?php if ($block->showRating()) : ?>
+                                    <div class="product-reviews-summary short">
+                                        <div class="rating-summary">
+                                            <a href="<?= $block->escapeUrl($block->getProductReviewUrl($review['entity_pk_value'])); ?>">
+                                                <span class="label"><span><?= $block->escapeHtml(__('Rating:')) ?></span></span>
+                                                <div class="rating-result"
+                                                     title="<?= $block->escapeHtml($review['review_value'] . '%') ?>">
+                                                    <span style="width: <?= $block->escapeHtml($review['review_value'] . '%') ?>"><span><?= $block->escapeHtml($review['review_value'] . '%') ?></span></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="details"><?= $block->escapeHtml($review['detail']) ?></div>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+    <?php
+} else {
+    ?>
+    <div class="container risecommerce_all_product_reviews page-products">
+        <div class="risecommerce-all-product-reviews-summary">
+            <h2><?= $block->escapeHtml(__('No review found.')) ?></h2>
+        </div>
+    </div>
+    <?php
+}
+?>

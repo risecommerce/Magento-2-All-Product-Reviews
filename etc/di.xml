@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Review\Block\Adminhtml\Edit\Form">
+        <plugin name="risecommerce_review_edit_form" type="Risecommerce\AllProductReviews\Plugin\Review\Block\Adminhtml\Edit\Form" />
+    </type>
+    <type name="Magento\Review\Block\Adminhtml\Add\Form">
+        <plugin name="risecommerce_review_add_form" type="Risecommerce\AllProductReviews\Plugin\Review\Block\Adminhtml\Add\Form" />
+    </type>
+</config>
